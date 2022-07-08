@@ -1,0 +1,310 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "29d2e60b-1f2c-422b-a19a-ce4650fec9c6": {
+                "size": {
+                    "width": 1630,
+                    "height": 670
+                },
+                "position": {
+                    "x": -1150,
+                    "y": -280
+                },
+                "z": 0,
+                "embeds": [
+                    "9a4dd59b-0d59-43bf-91da-9ae98137eea5",
+                    "33291ba5-8f35-4b6e-aa8b-fcc494d89bd6",
+                    "0654576d-39b1-4aa8-8f4e-73954dc99905",
+                    "ac8842f4-1021-442c-b87a-4094e4bcb512",
+                    "202c0f7f-11f2-4104-8994-bc15881aea36",
+                    "393007d0-de7d-4b8c-a0d4-742f7e2e3139"
+                ]
+            },
+            "393007d0-de7d-4b8c-a0d4-742f7e2e3139": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": -1004,
+                    "y": -211
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": [],
+                "dependson": [
+                    "29d2e60b-1f2c-422b-a19a-ce4650fec9c6"
+                ]
+            },
+            "202c0f7f-11f2-4104-8994-bc15881aea36": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": -1024,
+                    "y": 209
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": []
+            },
+            "ac8842f4-1021-442c-b87a-4094e4bcb512": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": -504,
+                    "y": -171
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": []
+            },
+            "0654576d-39b1-4aa8-8f4e-73954dc99905": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": -514,
+                    "y": 169
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": []
+            },
+            "33291ba5-8f35-4b6e-aa8b-fcc494d89bd6": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": 96,
+                    "y": -201
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": []
+            },
+            "9a4dd59b-0d59-43bf-91da-9ae98137eea5": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": 136,
+                    "y": 179
+                },
+                "z": 1,
+                "parent": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6",
+                "embeds": []
+            },
+            "358b4a32-f1e3-403c-baf1-1403fe06502b": {
+                "source": {
+                    "id": "393007d0-de7d-4b8c-a0d4-742f7e2e3139"
+                },
+                "target": {
+                    "id": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6"
+                },
+                "z": 2
+            }
+        }
+    },
+    "Resources": {
+        "cruncherVPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.0.0.0/16",
+                "EnableDnsSupport": "true",
+                "EnableDnsHostnames": "true",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "29d2e60b-1f2c-422b-a19a-ce4650fec9c6"
+                }
+            }
+        },
+        "myPublicSubnet1": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.0.0/24",
+                "AvailabilityZone": "us-east-1c",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "393007d0-de7d-4b8c-a0d4-742f7e2e3139"
+                }
+            },
+            "DependsOn": [
+                "cruncherVPC"
+            ]
+        },
+        "myPublicSubnet2": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.1.0/24",
+                "AvailabilityZone": "us-east-1c",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "202c0f7f-11f2-4104-8994-bc15881aea36"
+                }
+            },
+            "DependsOn": [
+                "cruncherVPC"
+            ]
+        },
+        "myPrivateSubnet1": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.2.0/24",
+                "AvailabilityZone": "us-east-1b",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ac8842f4-1021-442c-b87a-4094e4bcb512"
+                }
+            }
+        },
+        "myPrivateSubnet2": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.3.0/24",
+                "AvailabilityZone": "us-east-1c",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0654576d-39b1-4aa8-8f4e-73954dc99905"
+                }
+            },
+            "DependsOn": [
+                "cruncherVPC"
+            ]
+        },
+        "myPrivateSubnet3": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.4.0/24",
+                "AvailabilityZone": "us-east-1b",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "33291ba5-8f35-4b6e-aa8b-fcc494d89bd6"
+                }
+            },
+            "DependsOn": [
+                "cruncherVPC"
+            ]
+        },
+        "myPrivateSubnet4": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                },
+                "CidrBlock": "10.0.5.0/24",
+                "AvailabilityZone": "us-east-1c",
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "9a4dd59b-0d59-43bf-91da-9ae98137eea5"
+                }
+            },
+            "DependsOn": [
+                "cruncherVPC"
+            ]
+        },
+        "cruncherIGW": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "stack",
+                        "Value": "production"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "27c24ab3-9101-48b8-a4d7-7ff03364acfc"
+                }
+            }
+        },
+        "AttachGateway": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "InternetGatewayId": {
+                    "Ref": "cruncherIGW"
+                },
+                "VpcId": {
+                    "Ref": "cruncherVPC"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "8ef4c4c0-a840-48af-a18b-f4c391ddd988"
+                }
+            }
+        }
+    }
+}
